@@ -1,0 +1,14 @@
+# Get External IP / Internet Speed
+alias myip="curl https://ipinfo.io/json" # or /ip for plain-text ip
+alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -"
+
+# Quickly serve the current directory as HTTP
+alias serve='ruby -run -e httpd . -p 8000' # Or python -m SimpleHTTPServer :)
+alias gagc='git add . && git commit -m '
+alias getout='pkill -KILL -u $USER'
+alias update='sudo pacman -Syyu'
+alias codew='code --enable-features=UseOzonePlatform --ozone-platform=wayland'
+alias waykill='killall waybar && ~/scripts/waybar.sh'
+alias wbar='~/scripts/waybar.sh &'
+alias lista='pacman -Qet | awk "{print $1}" > $HOME/.dotfiles/packages.txt'
+

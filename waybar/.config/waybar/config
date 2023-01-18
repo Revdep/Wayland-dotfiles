@@ -1,0 +1,110 @@
+// Top bar Config 
+
+{
+    // position and format
+    "layer": "top",
+   "height": 30,
+    "spacing": 4,
+// Module order : Left, Center, Right
+    "modules-left": [
+        "custom/home",
+        "wlr/workspaces"
+    ],
+        "modules-center": [
+    ],
+        "modules-right": [
+        //"cpu",
+        //"memory",
+        //"temperature",
+        "custom/gammastep",
+        "backlight",
+        "pulseaudio",
+        "battery",
+        //bluetooth",
+        "network",
+        "clock",
+        "tray"
+    ],
+    // Modules Configuration
+    "custom/home": {
+        "format": " ",
+        "on-click": "nemo",
+        "tooltip": false
+    },
+    "wlr/workspaces": {
+        "format": "{name}",
+        "on-click": "activate",
+        "on-scroll-up": "hyprctl dispatch workspace e+1",
+     	"on-scroll-down": "hyprctl dispatch workspace e-1"
+    },
+    "custom/gammastep": {
+        "format": "[ {}",
+        "tooltip": false,
+        "interval": 5,
+        "on-update": "",
+        "exec": "sleep 0.05; $HOME/scripts/gammastep.sh",
+        "on-click": "bash $HOME/scripts/gammastep.sh toggle"
+    },
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "{icon}",
+		"format-icons": ["", ""],
+        "on-scroll-up":"brightnessctl set +5% ",
+        "on-scroll-down": "brightnessctl set 5%- "
+    },
+    "pulseaudio": {
+        "scroll-step": 5, // %, can be a float
+        "format": "{icon}",
+        "format-bluetooth": "{icon}",
+        //"format-bluetooth-muted": " {icon}",
+        "format-muted": "",
+        //"format-source": "{volume}% ",
+        //"format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": [
+                "",
+                "",
+                ""
+            ]
+        }
+        },
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 15,
+            "critical": 7
+        },
+        "format": "{icon} ]",
+        "format-charging": " ]",
+        "format-plugged": " ]",
+        //"format-alt": "{power}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""],
+        "tooltip-format": "{power}W - {capacity}%",
+    },
+    "network": {
+        "tooltip-format": "{ipaddr}",
+        "format": "{icon}{essid}",
+        "format-wifi": "[  {essid} | {bandwidthDownBits} ⯯ | {bandwidthUpBits} ⯭ ]",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "format-disconnected": "Disconnected ⚠",
+        "on-click": "$HOME/.config/wofi-wifi.sh",	// https://raw.githubusercontent.com/cristobaltapia/dotfiles_sway/master/home/.config/wofi/scripts/wofi-wifi.sh
+    },
+    "clock": {
+        // "timezone": "Europe/Rome",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%Y-%m-%d}",
+        "format": "[{:%A %d, %H:%M}]"
+    },
+    "tray": {
+        // "icon-size": 21,
+        "spacing": 10
+    },
+}

@@ -1,0 +1,172 @@
+#xftalpha 0.8
+text_buffer_size 2048
+
+# Update interval in seconds
+update_interval 1
+# This is the number of times Conky will update before quitting.
+# Set to zero to run forever.
+total_run_times 0
+
+# Create own window instead of using desktop (required in nautilus)
+own_window yes
+own_window_transparent yes
+own_window_type dock
+##### aggiunte i3
+own_window_class Conky
+own_window_type override
+
+own_window_argb_visual yes
+own_window_argb_value 0
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+# Use double buffering (reduces flicker, may not work for everyone)
+double_buffer yes
+
+# Minimum size of text area
+minimum_size 1460 720
+maximum_width 350
+
+# Draw shades?
+draw_shades no
+
+# Draw outlines?
+draw_outline no
+
+# Draw borders around text
+draw_borders no
+
+# Draw borders around graphs
+draw_graph_borders yes
+
+# Stippled borders?
+stippled_borders 0
+
+# border margins
+#border_margin 1
+
+# border width
+border_width 10
+
+# Default colors and also border colors
+default_color eef4ed
+default_shade_color black
+default_outline_color black
+own_window_colour 000000
+
+# Color scheme #
+default_color ffffff
+
+color1 ffffff
+color2 444444
+color3 669900
+color4 333333
+color5 0099CC
+
+# Text alignment, other possible values are commented
+#alignment top_left
+alignment top_right
+#alignment bottom_left
+#alignment bottom_right
+
+# Gap between borders of screen and text
+# same thing as passing -x at command line
+gap_x 50
+gap_y 160
+
+# Subtract file system buffers from used memory?
+no_buffers yes
+
+# set to yes if you want all text to be in uppercase
+uppercase no
+
+# number of cpu samples to average
+# set to 1 to disable averaging
+cpu_avg_samples 2
+
+# number of net samples to average
+# set to 1 to disable averaging
+net_avg_samples 2
+
+# Force UTF8? note that UTF8 support required XFT
+override_utf8_locale no
+
+# Add spaces to keep things from moving about?  This only affects certain objects.
+use_spacer none
+
+own_window_argb_visual yes
+own_window_argb_value 0
+TEXT
+#${voffset 20}${image darkside.png -p 60,30 -s  150x100}
+${font pango=18}
+${color white}${execi 3600 date +"%A %B %d, %Y "}
+#${execi 1 date +"%T"}${color C2BAB6}
+#${voffset 10}${font pango=17}
+Battery 1$alignr${battery_percent BAT0}%
+${battery_bar}${battery_percent BAT0}%
+
+Battery 2$alignr${battery_percent BAT1}%
+${battery_bar}${battery_percent BAT1}%
+
+#capacity:
+#${execi 60 acpi | grep -E '[0-9]+%'}
+#status:$alignr${execi 60 acpi | grep -Eo '\w+,' | grep -Eo '\w+'}
+remaining:${execi 60 acpi | grep -Eo '(:?[0-9]+){3}'}${alignr}
+
+${color white}Update List ${hr 2}
+${color}You can install ${execi 3600 perl /home/mutley/.config/conky/Gothic/pacmanscript}
+
+${color white}System ${hr 2}
+
+${color}Uptime: $uptime
+${color white}${nodename}
+${color}${exec lsb_release -i -s}${color yellow} ${exec lsb_release -r -s} (${exec lsb_release -c -s})
+${color}Kernel ${sysname} ${kernel}
+
+ ${hr 2}
+
+${color grey}NVME - / ${alignr} ${fs_used /}/${fs_size /}
+${alignr}${color grey}${fs_bar 10,280 /}
+${color grey}NVME - /HOME${alignr} ${fs_used /home}/${fs_size /home}
+${alignr}${color grey}${fs_bar 10,280 /home}
+
+${color}${hr 2}
+
+${color}CPU1 ${cpu cpu1}%${alignr}${color white}${cpubar cpu1 15,180 66241C 0099CC}
+${color}CPU2 ${cpu cpu2}%${alignr}${color white}${cpubar cpu2 15,180}
+${color}CPU3 ${cpu cpu3}%${alignr}${color white}${cpubar cpu3 15,180}
+${color}CPU4 ${cpu cpu4}%${alignr}${color white}${cpubar cpu4 15,180}
+
+${color yellow}Core 1: ${execi 30 sensors|grep 'Core 0'| awk -F'+' '{print $2}' | awk -F'.' '{print $1}'} °C ${alignc} ${alignr} Core 2: ${execi 30 sensors|grep 'Core 1'| awk -F'+' '{print $2}' | awk -F'.' '{print $1}'} °C
+${color yellow}Core 3: ${execi 30 sensors|grep 'Core 2'| awk -F'+' '{print $2}' | awk -F'.' '{print $1}'} °C ${alignc} ${alignr} Core 4: ${execi 30 sensors|grep 'Core 3'| awk -F'+' '{print $2}' | awk -F'.' '{print $1}'} °C
+${color}${alignr}CPU%
+${color}${top name 1}${alignr}${top cpu 1}
+${color}${top name 2}${alignr}${top cpu 2}
+${color}${top name 3}${alignr}${top cpu 3}
+${color}${top name 4}${alignr}${top cpu 4}
+${color}${top name 5}${alignr}${top cpu 5}
+${color}${top name 6}${alignr}${top cpu 6}
+${color}${top name 7}${alignr}${top cpu 7}
+
+${hr 2}
+
+${color}RAM ${alignr} ${mem}/${memmax}
+${alignr}${color white}${membar 15,280}
+${color}Swap ${alignr} ${swap}/${swapmax}
+${alignr}${color white}${swapbar 15,280}
+
+${color}${alignr}USAGE
+$color1${top_mem name 1} $alignr $color3${top_mem mem_res 1}
+$color1${top_mem name 2} $alignr $color3${top_mem mem_res 2}
+$color1${top_mem name 3} $alignr $color3${top_mem mem_res 3}
+$color1${top_mem name 4} $alignr $color3${top_mem mem_res 4}
+$color1${top_mem name 5} $alignr $color3${top_mem mem_res 5}
+$color1${top_mem name 6} $alignr $color3${top_mem mem_res 6}
+$color1${top_mem name 7} $alignr $color3${top_mem mem_res 7}
+${hr 2}
+${color}Receiving ${downspeedf wlan0} KB/s
+${alignr}${color white}${downspeedgraph wlan0  45,280}
+${color}Total Received${alignr}${totaldown wlan0}
+${hr 2}
+${color}Sending   ${upspeedf wlan0} KB/s
+${alignr}${color yellow}${upspeedgraph wlan0  45,280}
+${color}Total Sent${alignr}${totalup wlan0 }
