@@ -8,7 +8,7 @@ import configparser
 from decimal import Decimal
 
 API_URL = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest"
-#API_KEY_ENV = "COINMARKETCAP_API_KEY"
+API_KEY_ENV = "COINMARKETCAP_API_KEY"
 CONFIG_FILE = "config.ini"
 
 MIN_PRECISION = 0
