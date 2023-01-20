@@ -3,28 +3,14 @@
 {
     // position and format
     "layer": "top",
-   "height": 30,
+    "height": 30,
     "spacing": 4,
-// Module order : Left, Center, Right
-    "modules-left": [
-        "custom/home",
-        "wlr/workspaces"
-    ],
-        "modules-center": [
-    ],
-        "modules-right": [
-        //"cpu",
-        //"memory",
-        //"temperature",
-        "custom/gammastep",
-        "backlight",
-        "pulseaudio",
-        "battery",
-        //bluetooth",
-        "network",
-        "clock",
-        "tray"
-    ],
+    
+    // Module order : Left, Center, Right
+    "modules-left": [ "custom/home", "wlr/workspaces","custom/playerctl" ],
+    "modules-center": ["hyprland/window"],
+    "modules-right": ["custom/gammastep", "backlight", "pulseaudio", "battery", "network", "clock", "tray" ],
+    
     // Modules Configuration
     "custom/home": {
         "format": " ",
@@ -37,8 +23,23 @@
         "on-scroll-up": "hyprctl dispatch workspace e+1",
      	"on-scroll-down": "hyprctl dispatch workspace e-1"
     },
+
+    "custom/playerctl": {
+        "format": "{icon}  <span>{}</span>",
+        "return-type": "json",
+        "max-length": 35,
+        "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} ~ {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+        "on-click-middle": "playerctl play-pause",
+        "on-click": "playerctl previous",
+        "on-click-right": "playerctl next",
+        "format-icons": {
+          "Playing": "<span foreground='#94e2d5'></span>",
+          "Paused": "<span foreground='#94e2d5'></span>"
+        }
+    },
+
     "custom/gammastep": {
-        "format": "[ {}",
+        "format": "{}",
         "tooltip": false,
         "interval": 5,
         "on-update": "",
@@ -76,13 +77,13 @@
         },
     "battery": {
         "states": {
-            // "good": 95,
+            "good": 95,
             "warning": 15,
             "critical": 7
         },
-        "format": "{icon} ]",
-        "format-charging": " ]",
-        "format-plugged": " ]",
+        "format": "{icon}  |",
+        "format-charging": "  |",
+        "format-plugged": "  |",
         //"format-alt": "{power}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
@@ -92,7 +93,7 @@
     "network": {
         "tooltip-format": "{ipaddr}",
         "format": "{icon}{essid}",
-        "format-wifi": "[  {essid} | {bandwidthDownBits} ⯯ | {bandwidthUpBits} ⯭ ]",
+        "format-wifi": "  {essid} | {bandwidthDownBits} ⯯ | {bandwidthUpBits} ⯭",
         "format-ethernet": "{ipaddr}/{cidr} ",
         "format-disconnected": "Disconnected ⚠",
         "on-click": "$HOME/.config/wofi-wifi.sh",	// https://raw.githubusercontent.com/cristobaltapia/dotfiles_sway/master/home/.config/wofi/scripts/wofi-wifi.sh
@@ -101,7 +102,7 @@
         // "timezone": "Europe/Rome",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "{:%Y-%m-%d}",
-        "format": "[{:%A %d, %H:%M}]"
+        "format": "| {:%A %d, %H:%M}"
     },
     "tray": {
         // "icon-size": 21,

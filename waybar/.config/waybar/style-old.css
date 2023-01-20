@@ -1,0 +1,122 @@
+/*
+
+*/
+@import "macchiato.css";
+
+* {
+    font-family:FontAwesome, JetBrains Mono;
+    font-size: 15px;
+    border-radius: 0;
+}
+
+window#waybar {
+    background-color: transparent;
+    transition-duration: .5s;
+}
+
+
+#workspaces {
+    margin-left: 8px;
+    border-radius: 10px;
+  }
+
+#workspaces button {
+    padding-left: 10px;
+    padding-right: 10px;
+    color: @yellow;
+    background-color: @base;
+}
+
+
+#workspaces button:hover {
+    background: inherit;
+    color: @red;
+    box-shadow: inherit;
+    text-shadow: inherit; 
+}
+
+#workspaces button.active {
+    color: @green;
+}
+
+#workspaces button.urgent {
+    background-color: @red;
+}
+
+#clock {
+    padding: 1px 5px 0 5px;
+    color: @green;
+    background-color: @base;
+    border-radius: 5px
+}
+#tray {
+    padding: 1px 5px 0 5px;
+    color: @sapphire;
+    background-color: @base;
+    border-radius: 5px
+}
+
+#network { 
+    background-color: @base;
+    border-radius: 5px;
+    color: @peach;
+    padding: 2px 10px 0 13px;
+    margin-top: 1px;
+}
+
+
+#custom-gammastep,#backlight, #pulseaudio, #battery {
+    background-color: @base;
+    padding: 2px 7px;
+    color: @blue;
+    margin-top: 5px;
+}
+
+/* If workspaces is the leftmost module, omit left margin 
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}*/
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+@keyframes blink { 
+    to { 
+        background-color: @peach; 
+        color: @sky; 
+    } 
+} 
+
+#battery.critical:not(.charging) { 
+    background-color: @red; 
+    color: #ffffff; 
+    animation-name: blink; 
+    animation-duration: 1s; 
+    animation-timing-function: linear; 
+    animation-iteration-count: infinite; 
+    animation-direction: alternate; 
+} 
+
+#network { 
+	/* background-color: @overlay0; */
+    color: @yellow;
+    padding: 2px 10px 0 13px;
+    margin-top: 1px;
+} 
+
+
+#network.disconnected, #bluetooth.disconnected, #pulseaudio.muted { 
+    color: @red; 
+}
+
+
+#custom-home { 
+    margin-right: 10px;
+    background-color: @sapphire; 
+    color: white;
+    padding: 2px 9px 0 10px;
+    font-size: 9px;
+    margin-bottom: 1px;
+} 

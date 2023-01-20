@@ -10,10 +10,10 @@ dunst &
 
 # low battery notifications
 batsignal -n BAT0 -f 95 -m 180 -b -e &
-
+batsignal -n BAT1 -f 95 -m 180 -b -e &
 
 # wallpaper
-swaybg -i $HOME/Immagini/wallpapers/catpucin.jpg &
+swaybg -i $HOME/Immagini/wallpapers/fool-space.jpg &
 
 # screen lock
 swayidle -w timeout 300 'systemctl --user start lock' &
@@ -22,6 +22,7 @@ swayidle -w timeout 300 'systemctl --user start lock' &
 /usr/lib/polkit-kde-authentication-agent-1 &
 nwg-look -a &
 blueman-applet
+nm-applet &
 dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &
 systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &
 rm -f $WOBSOCK.wob && mkfifo $WOBSOCK.wob && tail -f $WOBSOCK.wob | wob &
