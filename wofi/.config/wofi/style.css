@@ -32,24 +32,24 @@
 window {
   margin: 2px;
   border: 2px solid @mantle;
-  background-color: @mantle;
+  border-radius: 5px;
+  background-color: rgba(rgba(30, 50, 68, 0.808);
 }
 
 #input {
   margin: 2px;
   border: 2px solid @text;
-  background-color: @surface0;
 }
 
 #inner-box {
   margin: 2px;
-  background-color: @base;
+  background-color: rgba(rgba(30, 50, 68, 0.808);
 }
 
 #outer-box {
   margin: 2px;
   border: 2px solid @base;
-  background-color: @base;
+  background-color: rgba(rgba(30, 50, 68, 0.8);
 }
 
 .entry image {

@@ -43,7 +43,7 @@
     }, 
     "disk": {
         "interval": 60,
-        "format": "{free}GB free on /home",
+        "format": "{free} free on /home",
         "path": "/home",
         "on-click": "nemo",
         "tooltip-format": "{path} ({percentage_used}%)"
