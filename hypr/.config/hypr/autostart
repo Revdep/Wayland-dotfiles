@@ -20,9 +20,8 @@ swayidle -w timeout 300 'systemctl --user start lock' &
 
 # other
 /usr/lib/polkit-kde-authentication-agent-1 &
-nwg-look -a &
-blueman-applet
-nm-applet &
+nwg-look -a &  # to restore themes
+blueman-applet #bluetooth
 dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &
 systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &
 rm -f $WOBSOCK.wob && mkfifo $WOBSOCK.wob && tail -f $WOBSOCK.wob | wob &
