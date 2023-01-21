@@ -1,19 +1,18 @@
-![2023-01-17-18:25:11_Screenshot](https://user-images.githubusercontent.com/61702357/213056300-7f4f028c-330a-4d98-a0c9-9516bda09df1.png)
+![hyprland+waybar-compress](https://user-images.githubusercontent.com/61702357/213812100-a8dc21c5-18bc-43c0-ad7a-abbf823e55e7.png)
 
+ REQUIREMENTS 
 
-<h1> REQUIREMENTS <h1>
-
-<p> You can find packages to install on lista-pacchetti (i have all of that). </p>
+<p> You can find packages to install on packages.txt (i have installed all of that). </p>
 
 TO be able to pack/unpack dotfiles easily i used stow .
 You just need to clone this repo in the home directory , then cd the repo and use stow to symlink all the dotfiles on the right place.
 
 Example:
 - If You want Hyprland:
-cd /home/$user/.dotfiles
-stow hypr 
+`cd /home/$user/.dotfiles`
+`stow hypr `
 
 - If You want waybar:
-  stow waybar 
+ ` stow waybar `
   
   ....and so on. 
