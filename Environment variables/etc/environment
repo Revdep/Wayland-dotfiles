@@ -5,7 +5,7 @@ GNU nano 7.2                                                                    
 #
 BROWSER=firefox
 EDITOR=code
-FILE_MANAGER=pcmanfm
+FILE_MANAGER=nemo
 QT_QPA_PLATFORMTHEME=qt5ct
 QT_PLATFORM_PLUGIN=qt5ct
 QT_PLATFORMTHEME=qt5ct
