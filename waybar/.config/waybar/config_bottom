@@ -21,19 +21,19 @@
         "format": "{}"
     },
     "cpu": {
-        "format": "CPU {usage}% |",
+        "format": "  {usage}% |",
         "tooltip": false,
-        "on-click": "footclient --override=colors.background=000000 --title=fly-foot-tiled htop"
+        "on-click": "btop"
     },
     "memory": {
-        "format": "RAM {used} GB / {total} GB |"
+        "format": " {used} GB |"
     },
     "temperature": {
         // "thermal-zone": 2,
         // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
         "critical-threshold": 80,
-        // "format-critical": "{temperatureC}°C",
-        "format": "TEMP {temperatureC}° |",
+        "format-critical": "{temperatureC}°C",
+        "format": " {temperatureC}° |",
         "format-icons": [
             "",
             "",
@@ -43,11 +43,12 @@
     }, 
     "disk": {
         "interval": 60,
-        "format": "{free} free on /home",
+        "format": " {free} left",
         "path": "/home",
         "on-click": "nemo",
         "tooltip-format": "{path} ({percentage_used}%)"
     } ,
+    
     "custom/crypto": {
         "format": "{}",
         "interval": 600,

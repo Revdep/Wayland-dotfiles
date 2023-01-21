@@ -82,8 +82,8 @@
             "critical": 7
         },
         "format": "{icon}  |",
-        "format-charging": "  |",
-        "format-plugged": "  |",
+        "format-charging": " |",
+        "format-plugged": " |",
         //"format-alt": "{power}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
@@ -93,7 +93,7 @@
     "network": {
         "tooltip-format": "{ipaddr}",
         "format": "{icon}{essid}",
-        "format-wifi": "  {essid} | {bandwidthDownBits} ⯯ | {bandwidthUpBits} ⯭",
+        "format-wifi": "  {essid} | {bandwidthDownBits}  | {bandwidthUpBits} ",
         "format-ethernet": "{ipaddr}/{cidr} ",
         "format-disconnected": "Disconnected ⚠",
         "on-click": "$HOME/.config/wofi-wifi.sh",	// https://raw.githubusercontent.com/cristobaltapia/dotfiles_sway/master/home/.config/wofi/scripts/wofi-wifi.sh
