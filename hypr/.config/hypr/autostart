@@ -17,6 +17,7 @@ swaybg -i $HOME/Immagini/wallpapers/fool-space.jpg &
 
 # screen lock
 swayidle -w timeout 300 'systemctl --user start lock' &
+sway-audio-idle-inhibit
 
 # other
 /usr/lib/polkit-kde-authentication-agent-1 &
