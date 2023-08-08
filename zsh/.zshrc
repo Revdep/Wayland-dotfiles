@@ -68,3 +68,6 @@ export LC_ALL=en_US.UTF-8
 
 #source $HOME/.zshenv
 source /usr/share/nvm/init-nvm.sh
+export PATH=~/bin:$PATH
+
+export ERL_AFLAGS="-kernel shell_history enabled"
