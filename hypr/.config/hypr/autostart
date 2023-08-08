@@ -4,6 +4,7 @@ $WOBSOCK $XDG_RUNTIME_DIR/wob.sock &
 
 # waybar
 $HOME/scripts/waybar.sh &
+blueman-applet &
 
 # notifications 
 dunst &
@@ -16,13 +17,13 @@ batsignal -n BAT1 -f 95 -m 180 -b -e &
 swaybg -i $HOME/Immagini/wallpapers/fool-space.jpg &
 
 # screen lock
-swayidle -w timeout 300 'systemctl --user start lock' &
-sway-audio-idle-inhibit
+#swayidle -w timeout 300 'systemctl --user start lock' &
+exec sway-audio-idle-inhibit
 
 # other
 /usr/lib/polkit-kde-authentication-agent-1 &
 nwg-look -a &  # to restore themes
-blueman-applet #bluetooth
 dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &
 systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &
 rm -f $WOBSOCK.wob && mkfifo $WOBSOCK.wob && tail -f $WOBSOCK.wob | wob &
+
