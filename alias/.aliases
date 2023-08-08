@@ -11,4 +11,9 @@ alias codew='code --enable-features=UseOzonePlatform --ozone-platform=wayland'
 alias waykill='killall waybar && ~/scripts/waybar.sh'
 alias wbar='~/scripts/waybar.sh &'
 alias lista='pacman -Qet | awk "{print $1}" > $HOME/.dotfiles/packages.txt'
-
+alias exercism='/home/andrea/bin/exercism/exercism'
+# current hyprland log
+alias hyprlog='cat /tmp/hypr/$(ls -t /tmp/hypr | head -n 1)/hyprland.log'
+# last session hyprlandlog
+alias hyprlast='cat /tmp/hypr/$(ls -t /tmp/hypr | head -n 2 | tail -n 1)/hyprland.log'
+alias rmouse="/home/mutley/mouserestart.sh"
