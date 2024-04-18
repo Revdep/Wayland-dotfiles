@@ -86,6 +86,14 @@
     padding-right: 5px;
   }
 
+  #custom-command { 
+    background-color: @base; 
+    color: @teal;
+    padding: 2px 5px 0 10px;
+    font-size:9px;
+    margin-top: 1px;
+    border-radius: 5px;
+  } 
   
   #network { 
     /*background-color: @base;*/

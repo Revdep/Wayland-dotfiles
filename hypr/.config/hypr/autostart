@@ -5,13 +5,13 @@ $WOBSOCK $XDG_RUNTIME_DIR/wob.sock &
 # waybar
 $HOME/scripts/waybar.sh &
 blueman-applet &
-
+nm-applet &
 # notifications 
 dunst &
 
 # low battery notifications
-batsignal -n BAT0 -f 95 -m 180 -b -e &
-batsignal -n BAT1 -f 95 -m 180 -b -e &
+batsignal -n BAT0 -f 95 -m 180 -b -e -C "2% di carica rimasta"&
+batsignal -n BAT1 -f 95 -m 180 -b -e  "2% di carica rimasta" &
 
 # wallpaper
 swaybg -i $HOME/Immagini/wallpapers/fool-space.jpg &

@@ -12,6 +12,9 @@ alias waykill='killall waybar && ~/scripts/waybar.sh'
 alias wbar='~/scripts/waybar.sh &'
 alias lista='pacman -Qet | awk "{print $1}" > $HOME/.dotfiles/packages.txt'
 alias exercism='/home/andrea/bin/exercism/exercism'
+alias code='code --password-store="gnome"'
+alias reboot='sudo reboot'
+alias tdown='/home/andrea/.local/bin/telegram-download'
 # current hyprland log
 alias hyprlog='cat /tmp/hypr/$(ls -t /tmp/hypr | head -n 1)/hyprland.log'
 # last session hyprlandlog

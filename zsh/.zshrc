@@ -4,7 +4,7 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="ys"
 
 # Useful oh-my-zsh plugins for Le Wagon bootcamps
-plugins=(git gitfast last-working-dir common-aliases zsh-syntax-highlighting history-substring-search pyenv ssh-agent)
+plugins=(git gitfast last-working-dir common-aliases zsh-syntax-highlighting zsh-autosuggestions history-substring-search pyenv ssh-agent)
 
 
 # Disable warning about insecure completion-dependent directories
@@ -71,3 +71,15 @@ source /usr/share/nvm/init-nvm.sh
 export PATH=~/bin:$PATH
 
 export ERL_AFLAGS="-kernel shell_history enabled"
+. "$HOME/.asdf/asdf.sh"
+
+# append completions to fpath
+fpath=(${ASDF_DIR}/completions $fpath)
+# initialise completions with ZSH's compinit
+autoload -Uz compinit && compinit
+
+# secret for pedranoa
+export SECRET_KEY_BASE=cyJ7fzpSjPYJbYjsrwDXpDWCVk5yULPv+oW4lxmU7XPKQ/VHxPwv1hY8dfC5Loa/
+
+# Created by `pipx` on 2024-03-28 21:30:03
+export PATH="$PATH:/home/andrea/.local/bin"

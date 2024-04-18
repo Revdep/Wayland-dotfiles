@@ -7,7 +7,7 @@
    "height": 30,
     "spacing": 4,
 // Module order : Left, Center, Right
-    "modules-left": ["custom/command"],
+    "modules-left": [],
     "modules-center": [],
     "modules-right": ["cpu", "memory", "temperature", "disk", "custom/crypto" ],
     

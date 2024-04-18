@@ -7,9 +7,9 @@
     "spacing": 4,
     
     // Module order : Left, Center, Right
-    "modules-left": [ "custom/home", "wlr/workspaces","custom/playerctl" ],
+    "modules-left": ["hyprland/workspaces","custom/playerctl" ],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["custom/gammastep", "backlight", "pulseaudio", "battery", "network", "clock", "tray" ],
+    "modules-right": [ "tray", "custom/gammastep", "backlight", "pulseaudio", "battery", "clock", "custom/command" ],
     
     // Modules Configuration
     "custom/home": {
@@ -17,7 +17,7 @@
         "on-click": "nemo",
         "tooltip": false
     },
-    "wlr/workspaces": {
+    "hyprland/workspaces": {
         "format": "{name}",
         "on-click": "activate",
         "on-scroll-up": "hyprctl dispatch workspace e+1",
@@ -38,8 +38,14 @@
         }
     },
 
+    "tray": {
+        // "icon-size": 15,
+        "spacing": 8,
+        "format": " "
+    },
+
     "custom/gammastep": {
-        "format": "{}",
+        "format": "| {}",
         "tooltip": false,
         "interval": 5,
         "on-update": "",
@@ -81,7 +87,7 @@
             "warning": 15,
             "critical": 7
         },
-        "format": "{icon}  |",
+        "format": "{icon}|",
         "format-charging": " |",
         "format-plugged": " |",
         //"format-alt": "{power}",
@@ -102,10 +108,12 @@
         // "timezone": "Europe/Rome",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "{:%Y-%m-%d}",
-        "format": "| {:%A %d, %H:%M}"
+        "format": "{:%A %d, %H:%M}"
     },
-    "tray": {
-        // "icon-size": 21,
-        "spacing": 10
+
+     "custom/command": {
+        "format": " ",
+        "on-click": "$HOME/.config/wofi-power.sh",
+        "tooltip": false
     },
 }
